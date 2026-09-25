@@ -5,7 +5,7 @@ Pick "Reply with Attachments" from the message list context menu, click the
 toolbar button, or press a shortcut - the compose window opens with the files
 attached. No waiting, no dialog, no second step.
 
-Works in Betterbird and Thunderbird 128 or later.
+Works in Betterbird and Thunderbird 140 or later.
 
 ## Why this exists
 
@@ -154,19 +154,44 @@ of the .xpi.
 
 ## Publishing
 
-1. Local .xpi, development
-2. ATN **unlisted** signing (`web-ext sign --channel=unlisted`), .xpi published via GitHub Releases
-3. ATN **listed** submission
+The plan is: local .xpi during development -> ATN *unlisted* (self-distribution)
+signing with the signed file published on GitHub Releases -> ATN *listed*.
 
-Points to keep in mind for step 3:
+What is verified so far (checked against the live service):
 
+- The submission form lives at
+  <https://addons.thunderbird.net/en-US/developers/addon/submit/> and is behind a
+  Mozilla account (signed out it redirects to accounts.firefox.com).
+- API credentials are at
+  <https://addons.thunderbird.net/en-US/developers/addon/api/key/>, also behind
+  the same account.
+- ATN serves the public read API as **v4**
+  (`/api/v4/addons/addon/<slug>/` answers 200) while `/api/v5/...` answers 404, and
+  every `/api/vN/addons/upload/` path answers 404. `web-ext` version 7 removed
+  `--api-url-prefix` and `--use-submission-api` and made `--channel` mandatory, so
+  a working `web-ext sign` invocation against ATN is **not confirmed yet**. Do the
+  first submission through the web form, which also hands back a signed file for
+  the unlisted case, then revisit automation.
+
+`.github/workflows/release.yml` builds, tests and checks the .xpi on a tag push and
+attaches the .xpi plus its `.sha256` to the GitHub release. Signing is left out of
+it on purpose until the point above is settled.
+
+Before submitting:
+
+- Replace the placeholder icon and add screenshots - see `docs/listing.md`, which
+  also carries the summary, description, permission justification and the notes
+  for the reviewer.
 - The reviewers run Thunderbird, not Betterbird. Everything here uses standard
-  `MailExtension` APIs, so this works on both - keep it that way.
-- Betterbird maintains a blocklist for add-ons that patch application internals
-  at runtime. Never do that.
-- Replace the placeholder icon and add screenshots before listing.
-- The name must not collide with the existing "Reply with Attachments" add-on.
-- Run `web-ext lint` before submitting.
+  MailExtension APIs, so keep it that way.
+- Betterbird keeps a blocklist of add-ons that patch application internals at
+  runtime. Never do that.
+- The name must stay distinguishable from the existing "Reply with Attachments"
+  add-on.
+- `npx web-ext lint` validates against *Firefox* schemas, so it reports
+  Thunderbird-only manifest keys such as `message_display_action` and
+  `browser_specific_settings.gecko.data_collection_permissions` as unknown. Treat
+  those as false positives, but do read the rest of its output.
 
 ## Known limitations
 

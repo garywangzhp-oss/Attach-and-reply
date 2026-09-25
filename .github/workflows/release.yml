@@ -1,0 +1,51 @@
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Unit tests
+        run: node --test
+
+      - name: Build and check the .xpi
+        shell: pwsh
+        run: ./build.ps1
+
+      - name: Attach the .xpi to a GitHub release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/*.xpi
+            dist/*.sha256
+          generate_release_notes: true
+
+      # Signing stays manual until the ATN command line flow is confirmed - see
+      # README.md ("Publishing"). If it is, this becomes:
+      #
+      # - name: Sign (unlisted)
+      #   env:
+      #     WEB_EXT_API_KEY: ${{ secrets.ATN_API_KEY }}
+      #     WEB_EXT_API_SECRET: ${{ secrets.ATN_API_SECRET }}
+      #   run: >
+      #     npx --yes web-ext sign --channel=unlisted
+      #     --amo-base-url=https://addons.thunderbird.net/api/v5/
+      #     --source-dir=. --artifacts-dir=dist/signed

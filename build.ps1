@@ -27,7 +27,7 @@ if (Test-Path -LiteralPath $outFile) {
     Remove-Item -LiteralPath $outFile -Force
 }
 
-$excludedDirs = @('.git', 'dist', 'test', 'tools')
+$excludedDirs = @('.git', '.github', 'dist', 'docs', 'test', 'tools')
 $excludedFiles = @('package.json', '.gitignore', '.gitattributes', 'build.ps1')
 
 $files = Get-ChildItem -LiteralPath $root -Recurse -File -Force | Where-Object {
@@ -70,5 +70,10 @@ if ($LASTEXITCODE -ne 0) {
     throw "check-package.py failed for $outFile"
 }
 
+$hash = (Get-FileHash -LiteralPath $outFile -Algorithm SHA256).Hash.ToLower()
+$checksumFile = "$outFile.sha256"
+Set-Content -LiteralPath $checksumFile -Value ("{0}  {1}" -f $hash, (Split-Path $outFile -Leaf)) -Encoding ascii
+
 Write-Host "Built $outFile"
+Write-Host "SHA256 $hash"
 Write-Host ("Entries: {0}" -f ($names -join ', '))

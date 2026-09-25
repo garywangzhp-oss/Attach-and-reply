@@ -31,7 +31,17 @@ PRIMARY_MODIFIERS = {"Ctrl", "Alt", "Command", "MacCtrl"}
 MAX_MODIFIERS = 2
 
 # Anything that must never end up inside the .xpi.
-NOT_SHIPPED = ("package.json", "build.ps1", ".gitattributes", ".gitignore", "test/", "tools/", ".git/")
+NOT_SHIPPED = (
+    "package.json",
+    "build.ps1",
+    ".gitattributes",
+    ".gitignore",
+    ".github/",
+    "docs/",
+    "test/",
+    "tools/",
+    ".git/",
+)
 
 
 def check_shortcut(value, problems):
