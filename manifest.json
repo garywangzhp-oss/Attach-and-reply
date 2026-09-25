@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extName__",
+  "description": "__MSG_extDescription__",
+  "version": "0.1.0",
+  "default_locale": "en",
+  "author": "Gary Wang",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "permissions": ["compose", "messagesRead", "menus"],
+  "background": {
+    "page": "background.html"
+  },
+  "message_display_action": {
+    "default_title": "__MSG_actionTitle__",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "commands": {
+    "reply-with-attachments": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Alt+R"
+      },
+      "description": "__MSG_commandDescription__"
+    }
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "attach-and-reply@garywang.local",
+      "strict_min_version": "128.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "attach-and-reply",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Development-only marker file so Node treats lib/*.js as ES modules. There are no dependencies. This file is not shipped inside the .xpi.",
+  "scripts": {
+    "test": "node --test"
+  }
+}

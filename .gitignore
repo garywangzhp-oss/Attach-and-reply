@@ -1,0 +1,8 @@
+# build output
+dist/
+*.xpi
+
+# dev leftovers
+node_modules/
+.DS_Store
+Thumbs.db

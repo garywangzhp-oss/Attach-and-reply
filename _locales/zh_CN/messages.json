@@ -1,0 +1,48 @@
+{
+  "extName": {
+    "message": "带附件回复"
+  },
+  "extDescription": {
+    "message": "回复时原邮件的附件已经就位，不用等、不弹窗。"
+  },
+  "actionTitle": {
+    "message": "带附件回复"
+  },
+  "menuReply": {
+    "message": "带附件回复"
+  },
+  "menuReplyAll": {
+    "message": "带附件全部回复"
+  },
+  "commandDescription": {
+    "message": "带原邮件附件回复"
+  },
+  "noticeSkippedTitle": {
+    "message": "有 $COUNT$ 个附件没有带上：$SUMMARY$",
+    "placeholders": {
+      "count": { "content": "$1" },
+      "summary": { "content": "$2" }
+    }
+  },
+  "reasonInline": {
+    "message": "显示在正文里"
+  },
+  "reasonLinked": {
+    "message": "是网页链接，不是文件"
+  },
+  "reasonCloud": {
+    "message": "存放在云端"
+  },
+  "reasonDeleted": {
+    "message": "已从原邮件中删除"
+  },
+  "reasonDetached": {
+    "message": "内容存在邮件之外"
+  },
+  "reasonUnreadable": {
+    "message": "读取失败"
+  },
+  "reasonUnknown": {
+    "message": "不是普通附件"
+  }
+}
