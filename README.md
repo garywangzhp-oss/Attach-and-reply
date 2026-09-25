@@ -55,8 +55,12 @@ Entry points:
 - **Message list context menu**: *Reply with Attachments*, *Reply All with Attachments*.
   Both are greyed out unless exactly one message is selected.
 - **Toolbar button** in the message display area: replies to the sender.
-- **Keyboard shortcut**: `Ctrl+Shift+Alt+R` by default, changeable under
+- **Keyboard shortcut**: `Ctrl+Shift+U` by default, changeable under
   *Add-ons and Themes > gear > Manage Extension Shortcuts*.
+  Thunderbird's `commands` API allows at most two modifiers, and the three
+  default Reply shortcuts are taken, so the key is a compromise rather than a
+  mnemonic. Command shortcuts are application-wide, so while a compose window
+  is focused the shortcut still acts on the message selected in the mail tab.
 
 What is copied: every MIME part of the original mail that is a regular
 attachment, in the original order, keeping the file name the host displays

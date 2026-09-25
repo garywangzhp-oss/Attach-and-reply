@@ -28,7 +28,7 @@ if (Test-Path -LiteralPath $outFile) {
 }
 
 $excludedDirs = @('.git', 'dist', 'test', 'tools')
-$excludedFiles = @('package.json', '.gitignore', 'build.ps1')
+$excludedFiles = @('package.json', '.gitignore', '.gitattributes', 'build.ps1')
 
 $files = Get-ChildItem -LiteralPath $root -Recurse -File -Force | Where-Object {
     $rel = $_.FullName.Substring($root.Length + 1)
@@ -62,6 +62,12 @@ finally {
 
 if ($names -notcontains 'manifest.json') {
     throw "manifest.json is not at the root of $outFile"
+}
+
+# Refuse to hand out a package that fails the checks.
+python (Join-Path $root 'tools/check-package.py') --xpi $outFile
+if ($LASTEXITCODE -ne 0) {
+    throw "check-package.py failed for $outFile"
 }
 
 Write-Host "Built $outFile"

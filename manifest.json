@@ -25,7 +25,7 @@
   "commands": {
     "reply-with-attachments": {
       "suggested_key": {
-        "default": "Ctrl+Shift+Alt+R"
+        "default": "Ctrl+Shift+U"
       },
       "description": "__MSG_commandDescription__"
     }
