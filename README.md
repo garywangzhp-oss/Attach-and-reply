@@ -187,10 +187,10 @@ The same URL goes into the add-on's listing on addons.thunderbird.net as the
 page that lists the payment options, because a single platform rarely works for
 everyone:
 
-| Audience | Suggested |
+| Audience | Channel |
 |---|---|
-| Mainland China | Alipay/WeChat payment QR codes, and/or Afdian |
-| Elsewhere | PayPal (`paypal.me` or a donate button) |
+| Mainland China | Alipay and WeChat Pay QR codes (`docs/assets/alipay.png`, `docs/assets/wechat.png`) |
+| Elsewhere | none for now - see below |
 
 Worth knowing before choosing a platform:
 
@@ -199,8 +199,10 @@ Worth knowing before choosing a platform:
   Coffee, Liberapay, ...) is out for a mainland individual.
 - **GitHub Sponsors** has the same gap: Hong Kong SAR and Macao SAR are
   supported, mainland China is not.
-- PayPal works in both directions, but for a mainland account the payout side is
-  the part worth verifying with PayPal directly; the rules change often.
+- PayPal is the usual answer for international donors, but its **donation button
+  generator is not available to this account's region**, so there is no
+  international channel yet. Revisit if that changes; do **not** publish a
+  PayPal address that has not been tested with a real sender.
 
 ## Publishing
 

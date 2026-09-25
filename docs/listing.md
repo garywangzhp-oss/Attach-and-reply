@@ -82,9 +82,9 @@ Copy for the submission form at
     https://garywangzhp-oss.github.io/Attach-and-reply/
 
 Keep it identical to the constant in `lib/config.js` so the listing and the
-in-app Donate button never drift apart. Point it at a landing page that lists the
-payment options - see README.md ("Donate") for which platforms work from
-mainland China and which do not.
+in-app Donate button never drift apart. It points at the support page in
+`docs/index.html`, which is published through GitHub Pages. Only mainland
+Chinese payment options are offered there for now; see README.md ("Donate").
 
 **Categories / tags**
 
