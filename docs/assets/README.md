@@ -1,13 +1,24 @@
 # Support page assets
 
-Drop the two payment QR codes here with exactly these names:
+The two payment QR codes shown side by side on the support page
+(`docs/index.html`).
 
-| File | Content |
-|---|---|
-| `alipay.png` | 支付宝收款码 screenshot |
-| `wechat.png` | 微信收款码 screenshot |
+| File | Content | Size |
+|---|---|---|
+| `alipay.png` | Alipay QR code | 640x640 |
+| `wechat.png` | WeChat Pay QR code | 428x428 |
 
-They are shown side by side on the support page (`docs/index.html`). Square
-images around 500x500 work best. If a file is missing, the page hides that figure
-instead of showing a broken image, so the page stays usable while you are still
-collecting them.
+Both were produced from phone screenshots by cropping to a square around the QR
+code and keeping a margin of white around it. Verify a replacement the same way
+before committing it:
+
+```python
+# any QR decoder works, e.g. opencv's
+import cv2
+print(cv2.QRCodeDetector().detectAndDecode(cv2.imread("docs/assets/alipay.png"))[0])
+```
+
+A crop that still decodes is the acceptance test - it means the whole code is
+inside the frame with enough of a quiet zone. Avoid re-cropping so tightly that
+the code touches an edge; the page adds 12px of white padding inside the frame as
+a second line of defence.
