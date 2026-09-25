@@ -59,6 +59,15 @@ def check_shortcut(value, problems):
         problems.append("suggested_key %r has no primary modifier" % value)
 
 
+def check_debug_flag(root, problems):
+    """The diagnostic logging must never ship."""
+    source = open(os.path.join(root, "lib/log.js"), encoding="utf-8").read()
+    if re.search(r"export const DEBUG = true", source):
+        problems.append(
+            "lib/log.js still has DEBUG = true - set it back to false before building a release"
+        )
+
+
 def check_manifest(root, problems):
     manifest = json.load(open(os.path.join(root, "manifest.json"), encoding="utf-8"))
 
@@ -143,6 +152,7 @@ def main():
     args = parser.parse_args()
 
     problems = []
+    check_debug_flag(ROOT, problems)
     manifest = check_manifest(ROOT, problems)
     if args.xpi:
         check_archive(args.xpi, problems)

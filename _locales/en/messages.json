@@ -68,5 +68,8 @@
         "content": "$1"
       }
     }
+  },
+  "noticeNotDownloaded": {
+    "message": "The original mail is not available locally, so its attachments could not be added. Open the mail first, then reply again."
   }
 }

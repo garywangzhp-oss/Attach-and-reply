@@ -115,7 +115,7 @@ browser.menus.onClicked.addListener((info) => {
   }
 
   return replyWithAttachments(
-    { messageId: selected[0].id, replyType },
+    { messageId: selected[0].id, replyType, headersOnly: selected[0].headersOnly },
     browser,
     log
   );
@@ -136,7 +136,11 @@ browser.messageDisplayAction.onClicked.addListener(async (tab, info) => {
 
   const senderOnly = Boolean(info?.modifiers?.includes("Shift"));
   await replyWithAttachments(
-    { messageId: displayed.id, replyType: senderOnly ? REPLY_TYPE_SENDER : REPLY_TYPE_ALL },
+    {
+      messageId: displayed.id,
+      replyType: senderOnly ? REPLY_TYPE_SENDER : REPLY_TYPE_ALL,
+      headersOnly: displayed.headersOnly,
+    },
     browser,
     log
   );
@@ -160,7 +164,7 @@ browser.commands.onCommand.addListener(async (command) => {
   // Matches the button default. commands.onCommand does not report modifiers,
   // so there is no Shift variant here - that would need a second command.
   await replyWithAttachments(
-    { messageId: selected.id, replyType: REPLY_TYPE_ALL },
+    { messageId: selected.id, replyType: REPLY_TYPE_ALL, headersOnly: selected.headersOnly },
     browser,
     log
   );
