@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.2.1
+
+- Fixed: a regular attachment that merely carried a `Content-ID` was treated as
+  embedded content and silently left out of the reply. Whether a part is inline is
+  now decided by looking at the message body: only a part the body actually
+  references with a `cid:` URL stays behind. (Reported with a PDF called
+  Contract.pdf.)
+- Added: when the original mail is not available locally (only its headers are
+  downloaded), the add-on now says so instead of opening a reply that quietly has
+  no attachments.
+- Added: if the attachment list cannot be read at all, that is reported instead of
+  failing silently.
+
 ## 0.2.0
 
 - Added an options page. It has no settings on purpose: the only thing on it is a
