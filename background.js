@@ -157,8 +157,10 @@ browser.commands.onCommand.addListener(async (command) => {
     return;
   }
 
+  // Matches the button default. commands.onCommand does not report modifiers,
+  // so there is no Shift variant here - that would need a second command.
   await replyWithAttachments(
-    { messageId: selected.id, replyType: REPLY_TYPE_SENDER },
+    { messageId: selected.id, replyType: REPLY_TYPE_ALL },
     browser,
     log
   );

@@ -56,7 +56,8 @@ Entry points:
   Both are greyed out unless exactly one message is selected.
 - **Toolbar button** in the message display area: replies to **everyone**, holding
   **Shift** while clicking replies to the sender only. The tooltip says so.
-- **Keyboard shortcut**: `Ctrl+Shift+U` by default, changeable under
+- **Keyboard shortcut**: `Ctrl+Shift+U` by default, replies to everyone too;
+  changeable under
   *Add-ons and Themes > gear > Manage Extension Shortcuts*.
   Thunderbird's `commands` API allows at most two modifiers, and the three
   default Reply shortcuts are taken, so the key is a compromise rather than a

@@ -15,7 +15,7 @@
     "message": "Reply All with Attachments"
   },
   "commandDescription": {
-    "message": "Reply with the attachments of the original mail"
+    "message": "Reply to all with the attachments of the original mail"
   },
   "noticeSkippedTitle": {
     "message": "$COUNT$ attachment(s) not added: $SUMMARY$",

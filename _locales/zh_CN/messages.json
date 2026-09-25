@@ -15,7 +15,7 @@
     "message": "带附件全部回复"
   },
   "commandDescription": {
-    "message": "带原邮件附件回复"
+    "message": "带原邮件附件全部回复"
   },
   "noticeSkippedTitle": {
     "message": "有 $COUNT$ 个附件没有带上：$SUMMARY$",
