@@ -5,7 +5,7 @@ The two payment QR codes shown side by side on the support page
 
 | File | Content | Size |
 |---|---|---|
-| `alipay.png` | Alipay QR code | 640x640 |
+| `alipay.png` | Alipay QR code | 1119x1117 |
 | `wechat.png` | WeChat Pay QR code | 428x428 |
 
 Both were produced from phone screenshots by cropping to a square around the QR
