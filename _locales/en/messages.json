@@ -5,8 +5,11 @@
   "extDescription": {
     "message": "Reply with the attachments of the original e-mail already in place - no waiting, no dialog."
   },
+  "actionLabel": {
+    "message": "Attach & Reply"
+  },
   "actionTooltip": {
-    "message": "Attach & Reply - click: reply all with attachments, Shift+click: reply to the sender only"
+    "message": "Click: reply all with attachments. Shift+click: reply to the sender only."
   },
   "menuReply": {
     "message": "Reply with Attachments"

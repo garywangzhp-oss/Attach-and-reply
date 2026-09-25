@@ -54,8 +54,13 @@ Entry points:
 
 - **Message list context menu**: *Reply with Attachments*, *Reply All with Attachments*.
   Both are greyed out unless exactly one message is selected.
-- **Toolbar button** in the message display area: replies to **everyone**, holding
-  **Shift** while clicking replies to the sender only. The tooltip says so.
+- **Toolbar button** in the message display area: the button reads *Attach & Reply*
+  (`default_label`), the tooltip on hover reads *Click: reply all with attachments.
+  Shift+click: reply to the sender only.* (`default_title`). Clicking replies to
+  **everyone**, holding **Shift** replies to the sender only.
+
+  Note: with the toolbar set to *text only*, Thunderbird uses the title as the
+  label - switch the toolbar to icons+text if you want the short label there.
 - **Keyboard shortcut**: `Ctrl+Shift+U` by default, replies to everyone too;
   changeable under
   *Add-ons and Themes > gear > Manage Extension Shortcuts*.

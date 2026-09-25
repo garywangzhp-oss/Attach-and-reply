@@ -15,6 +15,7 @@
     "page": "background.html"
   },
   "message_display_action": {
+    "default_label": "__MSG_actionLabel__",
     "default_title": "__MSG_actionTooltip__",
     "default_icon": {
       "16": "icons/icon-16.png",

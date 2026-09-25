@@ -5,8 +5,11 @@
   "extDescription": {
     "message": "回复时原邮件的附件已经就位，不用等、不弹窗。"
   },
+  "actionLabel": {
+    "message": "带附件回复"
+  },
   "actionTooltip": {
-    "message": "带附件回复 — 点击：带附件全部回复；按住 Shift 点击：仅回复发件人"
+    "message": "点击：带附件全部回复；按住 Shift 点击：仅回复发件人"
   },
   "menuReply": {
     "message": "带附件回复"
