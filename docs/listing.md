@@ -23,9 +23,9 @@ that choice happens before the reply exists* - which is also why nothing stalls.
 
 ### Summary (the ATN "Summary" field)
 
-**EN** (261 chars)
+**EN** (201 chars)
 
-    Reply with the attachments of the original mail - when you choose to. Nothing is automatic and the normal Reply buttons stay as they are. Pick "Reply with Attachments" first, and the reply opens with the files already attached: no waiting, no dialog afterwards.
+    Reply with the original attachments when you choose to - nothing is automatic. Pick "Reply with Attachments" first and the reply opens with the files already attached: no waiting, no dialog afterwards.
 
 **ZH** (84 chars)
 
