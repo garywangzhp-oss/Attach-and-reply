@@ -107,8 +107,17 @@ Chinese payment options are offered there for now; see README.md ("Donate").
 - No network access at all: the add-on never calls `fetch`/`XMLHttpRequest`.
 - No data collection (`browser_specific_settings.gecko.data_collection_permissions`
   is `none`).
-- **No source code submission is needed and none is provided**: there is no build
-  step, no minifier, no bundler, no transpiler and no third-party library. Every
+**Source code (fill this in anyway, it costs nothing)**
+
+    https://github.com/garywangzhp-oss/Attach-and-reply/archive/refs/tags/v0.2.0.zip
+
+    Build instructions: no build step. The .xpi is a plain zip of the files in
+    this archive. All 20 shipped files are byte-identical to their counterparts
+    in the archive - unzip and compare, there are no differences. The archive
+    additionally contains development-only files (test/, tools/, docs/, .github/,
+    package.json, build.ps1) which are not part of the package.
+
+- **No build process at all**: no minifier, no bundler, no transpiler and no third-party library. Every
   one of the 20 files in the submitted archive is **byte-identical** to the file
   in the public repository at tag `v0.2.0`, so what a reviewer reads is exactly
   what a user runs. Reproduce with a plain zip; `build.ps1` only packages, it does
