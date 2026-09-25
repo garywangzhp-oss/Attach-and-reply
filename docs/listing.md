@@ -107,7 +107,7 @@ Chinese payment options are offered there for now; see README.md ("Donate").
   is `none`).
 **Source code (fill this in anyway, it costs nothing)**
 
-    https://github.com/garywangzhp-oss/Attach-and-reply/archive/refs/tags/v0.2.0.zip
+    https://github.com/garywangzhp-oss/Attach-and-reply/archive/refs/tags/v0.2.1.zip
 
     Build instructions: no build step. The .xpi is a plain zip of the files in
     this archive. All 20 shipped files are byte-identical to their counterparts
@@ -117,10 +117,10 @@ Chinese payment options are offered there for now; see README.md ("Donate").
 
 - **No build process at all**: no minifier, no bundler, no transpiler and no third-party library. Every
   one of the 20 files in the submitted archive is **byte-identical** to the file
-  in the public repository at tag `v0.2.0`, so what a reviewer reads is exactly
+  in the public repository at tag `v0.2.1`, so what a reviewer reads is exactly
   what a user runs. Reproduce with a plain zip; `build.ps1` only packages, it does
   not transform anything.
-- SHA-256 of the submitted file: `af2fecd4d69c30a2c881697e684fb401c98d28a5b935230bf3b4ab70269373a9` (published next to the file on GitHub).
+- SHA-256 of the submitted file: `b17af4ae2199ccb4d37b96965c290a7bac4d40688e0da6201e66816a10747831` (published next to the file on GitHub).
 - The badge notice is deliberate: at most one API call after the compose window
   opens, no loops.
 - Works on plain Thunderbird 140+ as well; nothing Betterbird-specific is used.
