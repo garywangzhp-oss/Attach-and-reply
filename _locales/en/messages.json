@@ -23,8 +23,12 @@
   "noticeSkippedTitle": {
     "message": "$COUNT$ attachment(s) not added: $SUMMARY$",
     "placeholders": {
-      "count": { "content": "$1" },
-      "summary": { "content": "$2" }
+      "count": {
+        "content": "$1"
+      },
+      "summary": {
+        "content": "$2"
+      }
     }
   },
   "reasonInline": {
@@ -47,5 +51,22 @@
   },
   "reasonUnknown": {
     "message": "not a regular attachment"
+  },
+  "donateHeading": {
+    "message": "Support this add-on"
+  },
+  "donateText": {
+    "message": "This add-on is free and does no tracking. If it saves you time, you can buy me a coffee. The link below lists the payment options - use whichever suits your country."
+  },
+  "donateButton": {
+    "message": "Donate"
+  },
+  "donateDone": {
+    "message": "I already donated - hide this for $DAYS$ days",
+    "placeholders": {
+      "days": {
+        "content": "$1"
+      }
+    }
   }
 }

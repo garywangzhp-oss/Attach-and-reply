@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "__MSG_extName__",
   "description": "__MSG_extDescription__",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "default_locale": "en",
   "author": "Gary Wang",
   "icons": {
@@ -13,6 +13,10 @@
   "permissions": ["compose", "messagesRead", "menus"],
   "background": {
     "page": "background.html"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
   },
   "message_display_action": {
     "default_label": "__MSG_actionLabel__",

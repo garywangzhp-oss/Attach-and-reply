@@ -95,7 +95,8 @@ def check_manifest(root, problems):
                 )
 
     used = set()
-    for rel in ("background.js", "lib/collect.js", "lib/reply.js", "lib/notify.js", "lib/actions.js"):
+    for rel in ("background.js", "options.js", "lib/config.js", "lib/donate.js",
+                "lib/collect.js", "lib/reply.js", "lib/notify.js", "lib/actions.js"):
         source = open(os.path.join(root, rel), encoding="utf-8").read()
         used |= set(re.findall(r'message\(\s*(?:browser,\s*)?"([A-Za-z0-9_]+)"', source))
         # Only the reason -> message key table, not every string in the file.

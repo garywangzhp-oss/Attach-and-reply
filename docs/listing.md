@@ -77,6 +77,15 @@ Copy for the submission form at
     不收集数据、不联网、没有设置页。只用三个权限：读取邮件、撰写邮件、往邮件列表
     右键菜单加两项。
 
+**Donate URL** (`contributions_url` on the ATN form)
+
+    <same URL as DONATE_URL in lib/config.js>
+
+Keep it identical to the constant in `lib/config.js` so the listing and the
+in-app Donate button never drift apart. Point it at a landing page that lists the
+payment options - see README.md ("Donate") for which platforms work from
+mainland China and which do not.
+
 **Categories / tags**
 
     Pick the composition / message-reading categories the form offers; suitable
@@ -101,6 +110,9 @@ Copy for the submission form at
 - The badge notice is deliberate: at most one API call after the compose window
   opens, no loops.
 - Works on plain Thunderbird 140+ as well; nothing Betterbird-specific is used.
+- The options page contains no settings, only a passive donation block the user
+  can hide for 90 days. It uses the extension's own `localStorage`, so the
+  permission list stays at three.
 
 ## Screenshots to capture
 

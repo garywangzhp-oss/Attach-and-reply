@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Attach &amp; Reply</title>
+    <style>
+      :root { color-scheme: light dark; }
+      body {
+        font: menu;
+        margin: 0 auto;
+        padding: 2rem 1.25rem;
+        max-width: 34rem;
+        line-height: 1.5;
+      }
+      h1 { font-size: 1.3rem; margin: 0 0 .25rem; }
+      p { margin: .5rem 0; }
+      .muted { opacity: .75; font-size: .95rem; }
+      .card {
+        border: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+        border-radius: .6rem;
+        padding: 1rem;
+        margin-top: 1.5rem;
+      }
+      button, .button {
+        font: inherit;
+        padding: .4rem .8rem;
+        border-radius: .4rem;
+        border: 1px solid color-mix(in srgb, currentColor 30%, transparent);
+        background: transparent;
+        color: inherit;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+      }
+      .link-button {
+        border: none;
+        background: none;
+        padding: 0;
+        text-decoration: underline;
+        opacity: .75;
+        font-size: .9rem;
+      }
+      #donate-actions { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; }
+      #donate-done { display: none; }
+    </style>
+  </head>
+  <body>
+    <h1 id="name"></h1>
+    <p id="description" class="muted"></p>
+
+    <div class="card" id="donate-card">
+      <h2 id="donate-heading" style="font-size:1.05rem;margin:0 0 .5rem"></h2>
+      <p id="donate-text"></p>
+      <div id="donate-actions">
+        <a class="button" id="donate-link" href="#" target="_blank" rel="noreferrer"></a>
+        <button type="button" class="link-button" id="donate-done"></button>
+      </div>
+    </div>
+
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

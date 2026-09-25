@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.0
+
+- Added an options page. It has no settings on purpose: the only thing on it is a
+  passive "Support this add-on" block.
+- "I already donated" hides that block for 90 days. The timestamp lives in the
+  extension's own `localStorage`, so this adds **no permission** - the permission
+  list is still `compose`, `messagesRead`, `menus`.
+- The donation link lives in exactly one place (`lib/config.js`) and is the same
+  URL that belongs in the ATN listing's `contributions_url` field.
+
 ## 0.1.0
 
 First working version.

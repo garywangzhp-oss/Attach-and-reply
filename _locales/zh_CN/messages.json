@@ -23,8 +23,12 @@
   "noticeSkippedTitle": {
     "message": "有 $COUNT$ 个附件没有带上：$SUMMARY$",
     "placeholders": {
-      "count": { "content": "$1" },
-      "summary": { "content": "$2" }
+      "count": {
+        "content": "$1"
+      },
+      "summary": {
+        "content": "$2"
+      }
     }
   },
   "reasonInline": {
@@ -47,5 +51,22 @@
   },
   "reasonUnknown": {
     "message": "不是普通附件"
+  },
+  "donateHeading": {
+    "message": "支持这个插件"
+  },
+  "donateText": {
+    "message": "这个插件免费、不追踪任何数据。如果它帮你省了时间，可以请我喝杯咖啡。下面的链接列出了可用的支付方式，按你所在地区挑一个方便的就行。"
+  },
+  "donateButton": {
+    "message": "捐赠"
+  },
+  "donateDone": {
+    "message": "我已经捐过了 —— $DAYS$ 天内不再显示",
+    "placeholders": {
+      "days": {
+        "content": "$1"
+      }
+    }
   }
 }
