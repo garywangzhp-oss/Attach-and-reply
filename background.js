@@ -125,15 +125,18 @@ browser.menus.onClicked.addListener((info) => {
 // Toolbar button in the message display area
 // ---------------------------------------------------------------------------
 
-browser.messageDisplayAction.onClicked.addListener(async (tab) => {
+// The button replies to everyone by default; holding Shift switches to the
+// sender only. `info` is optional in the schema, so it is guarded.
+browser.messageDisplayAction.onClicked.addListener(async (tab, info) => {
   const displayed = await getDisplayedMessage(tab?.id);
   if (!displayed) {
     log.warn("no message is displayed, nothing to do");
     return;
   }
 
+  const senderOnly = Boolean(info?.modifiers?.includes("Shift"));
   await replyWithAttachments(
-    { messageId: displayed.id, replyType: REPLY_TYPE_SENDER },
+    { messageId: displayed.id, replyType: senderOnly ? REPLY_TYPE_SENDER : REPLY_TYPE_ALL },
     browser,
     log
   );

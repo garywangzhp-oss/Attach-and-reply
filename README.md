@@ -54,7 +54,8 @@ Entry points:
 
 - **Message list context menu**: *Reply with Attachments*, *Reply All with Attachments*.
   Both are greyed out unless exactly one message is selected.
-- **Toolbar button** in the message display area: replies to the sender.
+- **Toolbar button** in the message display area: replies to **everyone**, holding
+  **Shift** while clicking replies to the sender only. The tooltip says so.
 - **Keyboard shortcut**: `Ctrl+Shift+U` by default, changeable under
   *Add-ons and Themes > gear > Manage Extension Shortcuts*.
   Thunderbird's `commands` API allows at most two modifiers, and the three
@@ -130,7 +131,8 @@ of the .xpi.
 ## Verification checklist
 
 - [ ] Message list context menu shows both entries; both grey out on a multi-selection
-- [ ] Toolbar button appears in the message display area
+- [ ] Toolbar button appears in the message display area and replies to everyone
+- [ ] Shift+click on the toolbar button replies to the sender only
 - [ ] Keyboard shortcut works (assign it manually if the default is taken)
 - [ ] Click to compose window: **under a second** with a local mailbox and <10MB of attachments
 - [ ] Regular attachments are present the moment the window appears
