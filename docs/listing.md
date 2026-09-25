@@ -5,77 +5,75 @@ Copy for the submission form at
 
 ## Fields
 
-**Name**
+Three lengths to choose from. The **Summary** is what search results and the
+listing list show, so keep it to the one that fits the form's character limit
+(both are well under 250).
+
+### One-liner (GitHub repository description, release notes)
+
+**EN** (63 chars)
+
+    Reply to a mail with its original attachments already attached.
+
+**ZH** (17 chars)
+
+    回复邮件时，原邮件的附件已经挂好。
+
+### Summary (the ATN "Summary" field)
+
+**EN** (191 chars)
+
+    Reply with the attachments of the original mail already in place. Pick it from the message list, a toolbar button or the Ctrl+Shift+U shortcut. No waiting, no dialog, no re-attaching by hand.
+
+**ZH** (69 chars)
+
+    回复时原邮件的附件已经就位。邮件列表右键、工具栏按钮或 Ctrl+Shift+U 快捷键都能触发。不用等、不弹窗，也不用再手动挂一遍附件。
+
+### Description / 概述 (the ATN description field)
+
+**EN**
+
+Every mail client quotes the original message when you reply, but none of them brings the attachments along. So you re-attach the same PDF by hand, every single time.
+
+Attach & Reply does one thing: it opens the reply with the attachments of the original mail already attached.
+
+Three ways to use it:
+* Right-click a message in the message list and choose "Reply with Attachments" or "Reply All with Attachments"
+* Click the Attach & Reply button in the message display toolbar - Shift+click replies to the sender only
+* Press Ctrl+Shift+U
+
+Attachments keep their original order and their original file names, including non-ASCII ones. Anything that is not a real file is left where it is: images embedded in the body stay in the body, web links and cloud attachments are not files, deleted attachments are placeholders. If the original mail had attachments and all of them were filtered out, the toolbar button shows how many were skipped and why.
+
+Why is it faster than the older add-on that does something similar? That one works the other way around: it only finds out which message you are replying to after the compose window exists, so it polls the host, retries, and finally asks a question in a dialog - a visible multi-second stall. Attach & Reply starts from the message you selected, so the message is known before the reply is created and the files are handed over at creation time.
+
+Attach & Reply is free, has no ads and no tracking, and never asks for anything inside the application. It uses three permissions: read your messages, compose messages, and add two items to the message list context menu.
+
+**ZH**
+
+所有邮件客户端在回复时都会引用原文，但没有一个会带上原来的附件——同一个 PDF，每次都还得手动再挂一遍。
+
+带附件回复只做一件事：回复时，把原邮件的附件提前挂好。
+
+三种用法：
+* 在邮件列表里右键，选「带附件回复」或「带附件全部回复」
+* 点消息区工具栏上的 Attach & Reply 按钮（按住 Shift 点击 = 仅回复发件人）
+* 按 Ctrl+Shift+U
+
+附件会保持原有顺序和文件名，中文文件名不会乱码。不是文件的东西一律不动：正文内嵌图片留在正文里，网页链接附件和云附件不是文件，已删除的附件只是占位。如果原邮件有附件但全被过滤掉了，工具栏按钮上会显示跳过几个以及原因。
+
+为什么比那个老的同类插件快？因为它是反着做的：要等回复窗口出现之后才知道你回复的是哪封邮件，于是轮询、重试，最后再弹个框问你——所以你能感觉到好几秒的卡顿。带附件回复从你选中的那封邮件出发，创建回复之前就已经知道是哪封，附件是随窗口一起给过去的。
+
+带附件回复免费、无广告、不追踪，在应用里也不会向你要任何东西。只用三个权限：读取邮件、撰写邮件、在邮件列表右键菜单里加两项。
+
+### Name
 
     Attach & Reply
 
-**Summary** (English, 2 lines, keep it under ~200 characters)
+### Notes on the description
 
-    Reply with the attachments of the original mail already in place. Pick it from
-    the message list, a toolbar button or a shortcut - no waiting, no dialog.
-
-**Summary** (Simplified Chinese)
-
-    回复时原邮件的附件已经就位。邮件列表右键、工具栏按钮或快捷键都能触发，不用等、不弹窗。
-
-**Description** (English)
-
-    Every mail client copies the quoted text when you reply. None of them copies
-    the attachments, so you re-attach the same PDF by hand, every single time.
-
-    Attach & Reply does one thing: it opens the reply with the attachments of the
-    original mail already attached.
-
-    Three ways to use it:
-
-    * Right-click a message in the message list and choose "Reply with
-      Attachments" or "Reply All with Attachments"
-    * Click the Attach & Reply button in the message display toolbar (Shift+click
-      replies to the sender only)
-    * Press Ctrl+Shift+U
-
-    Regular attachments are copied in their original order with their original
-    file names, including non-ASCII names. Everything that is not a real file is
-    left alone: images embedded in the body stay in the body, web links and cloud
-    attachments are not files, deleted attachments are placeholders. If the
-    original mail had attachments and all of them were filtered out, the toolbar
-    button shows how many and why.
-
-    Why another add-on for this? Because the established one works the other way
-    around: it only learns that you replied after the compose window exists, so it
-    polls the host, retries, and finally asks a question in a dialog. That is a
-    visible multi-second stall. Attach & Reply starts from the message you
-    selected, so the message id is known before the compose window opens - the
-    attachments are handed over at creation time.
-
-    No data collection, no network requests, no options page. Three permissions:
-    read messages, compose messages, and add two items to the message list
-    context menu.
-
-**Description** (Simplified Chinese)
-
-    所有邮件客户端在回复时都会引用原文，但没有一个会带上原来的附件——同一个 PDF，
-    每次都得手动再挂一遍。
-
-    Attach & Reply 只做一件事：回复时，把原邮件的附件提前挂好。
-
-    三种用法：
-
-    * 在邮件列表里右键，选“带附件回复”或“带附件全部回复”
-    * 点消息区工具栏上的 Attach & Reply 按钮（按住 Shift 点击 = 仅回复发件人）
-    * 按 Ctrl+Shift+U
-
-    普通附件会按原顺序、原名带过来，中文文件名不会乱码。不是文件的东西一律不动：
-    正文内嵌图片留在正文里，网页链接附件和云附件不是文件，已删除的附件只是占位。
-    如果原邮件有附件但全被过滤掉了，工具栏按钮上会显示数量和原因。
-
-    为什么还要再写一个？因为现有的那个是反着做的：它要等回复窗口出现之后才知道你
-    回复了哪封邮件，于是轮询、重试，最后再弹个框问你要不要带附件——所以你会看到
-    好几秒的卡顿。Attach & Reply 从你选中的那封邮件出发，创建回复窗口之前就已经知道
-    邮件 ID，附件是随窗口一起给过去的。
-
-    不收集数据、不联网、没有设置页。只用三个权限：读取邮件、撰写邮件、往邮件列表
-    右键菜单加两项。
+- The paragraph explaining why it is faster than the older add-on is factual and
+  names nobody. Drop it if you would rather not compare at all.
+- Plain text with `*` bullets renders fine in the listing.
 
 **Donate URL** (`contributions_url` on the ATN form)
 
