@@ -170,8 +170,17 @@ There is exactly **one** URL to maintain:
 
 ```js
 // lib/config.js
-export const DONATE_URL = "https://github.com/garywangzhp-oss/Attach-and-reply#donate";
+export const DONATE_URL = "https://garywangzhp-oss.github.io/Attach-and-reply/";
 ```
+
+The page itself lives in `docs/index.html` and is published with GitHub Pages:
+
+    Repository settings -> Pages -> Source: Deploy from a branch
+                                           -> Branch: main, folder: /docs
+
+Two QR codes go into `docs/assets/` (`alipay.png`, `wechat.png`, see the README
+there); the PayPal button is a single link in `docs/index.html`. The page hides a
+missing QR figure instead of showing a broken image.
 
 The same URL goes into the add-on's listing on addons.thunderbird.net as the
 `contributions_url` field (see `docs/listing.md`). Point both at a small landing

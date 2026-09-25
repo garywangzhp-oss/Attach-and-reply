@@ -79,7 +79,7 @@ Copy for the submission form at
 
 **Donate URL** (`contributions_url` on the ATN form)
 
-    <same URL as DONATE_URL in lib/config.js>
+    https://garywangzhp-oss.github.io/Attach-and-reply/
 
 Keep it identical to the constant in `lib/config.js` so the listing and the
 in-app Donate button never drift apart. Point it at a landing page that lists the

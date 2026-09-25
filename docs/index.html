@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Support Attach &amp; Reply</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --accent: #1f6feb;
+        --line: color-mix(in srgb, currentColor 18%, transparent);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0 auto;
+        padding: 3rem 1.25rem 4rem;
+        max-width: 44rem;
+        line-height: 1.6;
+        font-family: system-ui, -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+      }
+      h1 { font-size: 1.6rem; margin: 0 0 .25rem; }
+      h2 { font-size: 1.1rem; margin: 0 0 .75rem; }
+      .sub { margin: 0 0 2rem; opacity: .75; }
+      section {
+        border: 1px solid var(--line);
+        border-radius: .75rem;
+        padding: 1.25rem;
+        margin-bottom: 1.25rem;
+      }
+      .button {
+        display: inline-block;
+        background: var(--accent);
+        color: #fff;
+        text-decoration: none;
+        padding: .6rem 1.1rem;
+        border-radius: .5rem;
+        font-weight: 600;
+      }
+      .codes { display: flex; gap: 2rem; flex-wrap: wrap; margin: 1rem 0 .5rem; }
+      figure { margin: 0; text-align: center; }
+      figure img {
+        width: 200px; height: 200px; object-fit: contain;
+        border: 1px solid var(--line); border-radius: .5rem; background: #fff;
+      }
+      figcaption { margin-top: .4rem; font-size: .9rem; opacity: .8; }
+      .note { font-size: .9rem; opacity: .75; margin: .75rem 0 0; }
+      .zh { opacity: .95; }
+      a { color: var(--accent); }
+    </style>
+  </head>
+  <body>
+    <h1>Attach &amp; Reply</h1>
+    <p class="sub">
+      Reply with the attachments of the original mail already in place.<br />
+      <span class="zh">回复时原邮件的附件已经就位。</span>
+    </p>
+
+    <section aria-labelledby="paypal-h">
+      <h2 id="paypal-h">Outside mainland China &middot; <span class="zh">中国大陆以外</span></h2>
+      <p>
+        PayPal is the easiest option internationally.<br />
+        <span class="zh">海外用 PayPal 最方便。</span>
+      </p>
+      <!-- Replace PAYPAL_LINK below with your paypal.me link or PayPal donate button URL. -->
+      <a class="button" href="PAYPAL_LINK">Donate with PayPal &middot; 用 PayPal 捐赠</a>
+    </section>
+
+    <section aria-labelledby="china-h">
+      <h2 id="china-h">Mainland China &middot; <span class="zh">中国大陆</span></h2>
+      <p>Scan either code. <span class="zh">扫下面任意一个码即可。</span></p>
+      <div class="codes">
+        <figure>
+          <img src="assets/alipay.png" alt="Alipay QR code / 支付宝收款码" />
+          <figcaption>支付宝</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/wechat.png" alt="WeChat Pay QR code / 微信收款码" />
+          <figcaption>微信支付</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <p class="note">
+      Attach &amp; Reply is free, has no ads, no tracking, and never asks for
+      anything inside the application. Donations are voluntary and do not unlock
+      anything.<br />
+      <span class="zh">这个插件免费、无广告、不追踪，在应用里也不会向你要任何东西。捐赠完全自愿，不会解锁任何功能。</span>
+    </p>
+
+    <script>
+      // Hide a QR figure instead of showing a broken image while the file is missing.
+      document.querySelectorAll("figure img").forEach(function (img) {
+        img.addEventListener("error", function () {
+          img.closest("figure").hidden = true;
+        });
+      });
+    </script>
+  </body>
+</html>
