@@ -107,6 +107,13 @@ Chinese payment options are offered there for now; see README.md ("Donate").
 - No network access at all: the add-on never calls `fetch`/`XMLHttpRequest`.
 - No data collection (`browser_specific_settings.gecko.data_collection_permissions`
   is `none`).
+- **No source code submission is needed and none is provided**: there is no build
+  step, no minifier, no bundler, no transpiler and no third-party library. Every
+  one of the 20 files in the submitted archive is **byte-identical** to the file
+  in the public repository at tag `v0.2.0`, so what a reviewer reads is exactly
+  what a user runs. Reproduce with a plain zip; `build.ps1` only packages, it does
+  not transform anything.
+- SHA-256 of the submitted file: `af2fecd4d69c30a2c881697e684fb401c98d28a5b935230bf3b4ab70269373a9` (published next to the file on GitHub).
 - The badge notice is deliberate: at most one API call after the compose window
   opens, no loops.
 - Works on plain Thunderbird 140+ as well; nothing Betterbird-specific is used.
