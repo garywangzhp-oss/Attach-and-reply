@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.2.2
+
+- Packaging is reproducible through npm: `npm ci && npm run build` writes
+  `dist/attach-and-reply-<version>.xpi` using only Node's standard library, with
+  no dependencies. Entries are sorted and timestamps fixed, so the same sources
+  produce the same bytes anywhere and the published SHA-256 can be reproduced.
+- Added `package-lock.json`. ATN's source review requires a lock file when the
+  source archive contains a `package.json`, and the 0.2.1 submission was rejected
+  for that reason.
+- `build.ps1` is now a thin wrapper around `npm run build`, and CI runs the same
+  commands a reviewer runs, so there is a single build path.
+
 ## 0.2.1
 
 - Fixed: a regular attachment that merely carried a `Content-ID` was treated as

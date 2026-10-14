@@ -1,10 +1,14 @@
 {
   "name": "attach-and-reply",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": true,
   "type": "module",
-  "description": "Development-only marker file so Node treats lib/*.js as ES modules. There are no dependencies. This file is not shipped inside the .xpi.",
+  "description": "Thunderbird/Betterbird add-on: reply with the original attachments already attached. No runtime dependencies.",
+  "license": "MIT",
   "scripts": {
-    "test": "node --test"
+    "test": "node --test",
+    "check": "node tools/check-package.mjs",
+    "build": "node tools/build.mjs",
+    "release": "npm test && npm run check && npm run build && npm run check"
   }
 }
