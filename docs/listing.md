@@ -110,7 +110,7 @@ is ever introduced:
   untouched.
 - **No source archive is submitted, and none is needed**: there is no minifier, no
   bundler, no transpiler and no third-party library. Every one of the 20 files in
-  the .xpi is byte-identical to the file in the public repository at tag `v0.2.2`,
+  the .xpi is byte-identical to the file in the public repository at tag `v0.2.3`,
   so what a reviewer reads is exactly what a user runs. All API calls are plain
   `browser.*` usages.
 - No network access at all: the add-on never calls `fetch` or `XMLHttpRequest`, and
@@ -125,10 +125,12 @@ is ever introduced:
   | `messagesRead` | `messages.listAttachments()`, `messages.getAttachmentFile()`, `messages.getFull()` in `lib/collect.js` |
   | `menus` | the two entries in the message list context menu |
 
-  Note for a static scan: the modules take the API object as a parameter
-  (`beginReplyWithAttachments({..., browser})`) so they can be unit tested with a
-  fake, which is why `compose.*` calls may not be attributed to the permission
-  automatically. They are all in `lib/reply.js`.
+  Every call behind those permissions is a direct call on the global `browser`
+  object - `browser.compose.*` in `lib/reply.js`, and `browser.menus.*`,
+  `browser.messageDisplay.*`, `browser.mailTabs.*` in `background.js` - so static
+  analysis can attribute each one. (`lib/collect.js` keeps the API object as a
+  parameter so its tests can pass a fake; the `messages.*` calls there need
+  `messagesRead`, which the calls above already require.)
 - About the Firefox validator: `web-ext lint` (addons.mozilla.org's validator, which
   Thunderbird shares) reports our Thunderbird-only permissions and APIs as unknown -
   `compose`, `messagesRead`, `messageDisplay.*`, `mailTabs.*`, `messages.*`. That
@@ -142,7 +144,7 @@ is ever introduced:
 - The badge notice is deliberate: at most one API call after the compose window
   opens, no loops. Threads are never polled; the message id is known before the
   reply is created.
-- SHA-256 of the submitted file: `1bf2659d8b2c6a6b6e7ce91d00d7ece6a90fe8c157280677eba3c38db256eb15` (published next to the file on GitHub).
+- SHA-256 of the submitted file: `6bb5785513e8fa79a119cbf5d48891e901ba699495178a30fece42f4ec0fa160` (published next to the file on GitHub).
 - The options page has no settings: it carries one passive donation block, which
   the user can hide for 90 days. Donations are voluntary and unlock nothing.
 

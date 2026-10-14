@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.3
+
+- The compose calls in `lib/reply.js` now go through the global `browser` object
+  instead of an injected one - which is the object they always came from at
+  runtime. Naming it directly makes the permission each call needs visible to
+  static analysis, so ATN's review tooling no longer reports the `compose`
+  permission as possibly unused.
+
 ## 0.2.2
 
 - Packaging is reproducible through npm: `npm ci && npm run build` writes

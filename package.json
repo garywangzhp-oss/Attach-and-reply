@@ -1,6 +1,6 @@
 {
   "name": "attach-and-reply",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "private": true,
   "type": "module",
   "description": "Thunderbird/Betterbird add-on: reply with the original attachments already attached. No runtime dependencies.",
