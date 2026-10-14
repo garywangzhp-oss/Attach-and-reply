@@ -233,11 +233,15 @@ What is verified so far (checked against the live service):
 - API credentials are at
   <https://addons.thunderbird.net/en-US/developers/addon/api/key/>, also behind
   the same account.
-- ATN's source review expects a **reproducible npm build**. Its own linter refuses
-  a source archive without `package.json` ("there is no build process the shipped
-  add-on can be reproduced from") and aborts early without a lock file, so this
-  repository carries `package-lock.json` and the reviewer's command is
-  `npm ci && npm run build`.
+- **Submit the .xpi only.** The shipped code is readable source, so ATN reviews it
+  directly - its own tooling puts it plainly: *"If the XPI can be reviewed directly,
+  submit just the XPI (which is reviewed considerably faster)."* A source archive
+  is for XPI's that were minified, bundled or transpiled, and attaching one to
+  readable code is what got the 0.2.1 submission rejected.
+- The repository is nevertheless a reproducible npm project (`npm ci` installs
+  nothing, `npm run build` rebuilds the same bytes), so a source archive with a
+  lock file can be produced without any extra work if a build step is ever
+  introduced.
 - ATN serves the public read API as **v4**
   (`/api/v4/addons/addon/<slug>/` answers 200) while `/api/v5/...` answers 404, and
   every `/api/vN/addons/upload/` path answers 404. `web-ext` version 7 removed

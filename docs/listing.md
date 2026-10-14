@@ -75,63 +75,66 @@ Attach & Reply is free, has no ads and no tracking, and never asks for anything 
   nobody. Drop it if you would rather not compare at all.
 - Plain text with `*` bullets renders fine in the listing.
 
-**Donate URL** (`contributions_url` on the ATN form)
+## Donate URL (`contributions_url` on the ATN form)
 
     https://garywangzhp-oss.github.io/Attach-and-reply/
 
-Keep it identical to the constant in `lib/config.js` so the listing and the
-in-app Donate button never drift apart. It points at the support page in
-`docs/index.html`, which is published through GitHub Pages. Only mainland
-Chinese payment options are offered there for now; see README.md ("Donate").
+Keep it identical to the constant in `lib/config.js` so the listing and the in-app
+Donate button never drift apart. The page in `docs/index.html` lists the payment
+options; only mainland Chinese ones are offered there for now.
 
-**Categories / tags**
+## Source code field: leave it empty
 
-    Pick the composition / message-reading categories the form offers; suitable
-    keywords are: reply, attachment, attachments, compose, productivity.
+**Do not attach a source archive.** The .xpi ships plain, commented source, so the
+add-on is reviewed directly - and Thunderbird's own review tooling says so in as
+many words:
 
-## Permission justification (for the reviewer)
+> "If the XPI can be reviewed directly, submit just the XPI (which is reviewed
+> considerably faster)."
 
-| Permission | Why it is needed |
-|---|---|
-| `compose` | to open the reply and to hand the attachments to it |
-| `messagesRead` | to read the attachment list of the selected message and to fetch the attachment contents |
-| `menus` | to add the two entries to the message list context menu |
+The 0.2.1 submission was rejected because a source archive was attached to readable
+code: inside such an archive, what ATN looks for is the *input* of a build
+(package.json, a committed lock file, a build command), and any archive holding a
+copy of the .xpi itself is flagged as unnecessary.
+
+The repository is still set up as a reproducible npm project, in case a build step
+is ever introduced:
+
+    npm ci          # installs nothing - the project has no dependencies
+    npm run build   # writes dist/attach-and-reply-<version>.xpi deterministically
 
 ## Notes for the reviewer
 
-- Single purpose: reply to a message with the original attachments.
-- No remote code, no `eval`, no obfuscation, no build step - the files in the
-  archive are the sources.
-- No network access at all: the add-on never calls `fetch`/`XMLHttpRequest`.
-- No data collection (`browser_specific_settings.gecko.data_collection_permissions`
-  is `none`).
-**Source code (fill this in anyway, it costs nothing)**
+- Single purpose: reply to a message with the original attachments, and only when
+  the user picks that action. Nothing is automatic; the normal Reply buttons are
+  untouched.
+- **No source archive is submitted, and none is needed**: there is no minifier, no
+  bundler, no transpiler and no third-party library. Every one of the 20 files in
+  the .xpi is byte-identical to the file in the public repository at tag `v0.2.2`,
+  so what a reviewer reads is exactly what a user runs. All API calls are plain
+  `browser.*` usages.
+- No network access at all: the add-on never calls `fetch` or `XMLHttpRequest`, and
+  it has no remote code, no `eval` and no obfuscation.
+- No data collection
+  (`browser_specific_settings.gecko.data_collection_permissions` is `none`).
+- Permissions, all three used:
 
-    https://github.com/garywangzhp-oss/Attach-and-reply/archive/refs/tags/v0.2.2.zip
+  | Permission | Used for |
+  |---|---|
+  | `compose` | `compose.beginReply()` to open the reply, `compose.addAttachment()` / `compose.listAttachments()` in `lib/reply.js` |
+  | `messagesRead` | `messages.listAttachments()`, `messages.getAttachmentFile()`, `messages.getFull()` in `lib/collect.js` |
+  | `menus` | the two entries in the message list context menu |
 
-    Build instructions: npm ci && npm run build
-
-    There are no dependencies, so npm ci installs nothing, and the build only
-    packages the files that are already in the archive - no transpiling, no
-    bundling, no minifying. The archive is written deterministically (entries
-    sorted, timestamps fixed), so the rebuild is byte-identical to the published
-    .xpi and the SHA-256 below is reproducible. unzip the result and compare: the
-    20 shipped files are identical to their counterparts in this archive. The
-    archive additionally contains development-only files (test/, tools/, docs/,
-    .github/, build.ps1) which are not part of the package.
-
-- **No build process at all**: no minifier, no bundler, no transpiler and no third-party library. Every
-  one of the 20 files in the submitted archive is **byte-identical** to the file
-  in the public repository at tag `v0.2.2`, so what a reviewer reads is exactly
-  what a user runs. Reproduce with a plain zip; `build.ps1` only packages, it does
-  not transform anything.
-- SHA-256 of the submitted file: `ebaecfcca50eb414883cafd93e81e0fa5ed4764e157db9e5e4374732ce4b53a4` (published next to the file on GitHub).
+  Note for a static scan: the modules take the API object as a parameter
+  (`beginReplyWithAttachments({..., browser})`) so they can be unit tested with a
+  fake, which is why `compose.*` calls may not be attributed to the permission
+  automatically. They are all in `lib/reply.js`.
 - The badge notice is deliberate: at most one API call after the compose window
-  opens, no loops.
-- Works on plain Thunderbird 140+ as well; nothing Betterbird-specific is used.
-- The options page contains no settings, only a passive donation block the user
-  can hide for 90 days. It uses the extension's own `localStorage`, so the
-  permission list stays at three.
+  opens, no loops. Threads are never polled; the message id is known before the
+  reply is created.
+- SHA-256 of the submitted file: `1bf2659d8b2c6a6b6e7ce91d00d7ece6a90fe8c157280677eba3c38db256eb15` (published next to the file on GitHub).
+- The options page has no settings: it carries one passive donation block, which
+  the user can hide for 90 days. Donations are voluntary and unlock nothing.
 
 ## Screenshots to capture
 
