@@ -47,7 +47,7 @@ Because the action comes first, the reply opens with the attachments already in 
 
 Attachments keep their original order and their original file names, including non-ASCII ones. Anything that is not a real file is left where it is: images embedded in the body stay in the body, web links and cloud attachments are not files, deleted attachments are placeholders. If the original mail had attachments and all of them were filtered out, the toolbar button shows how many were skipped and why.
 
-Attach & Reply is free, has no ads and no tracking, and never asks for anything inside the application. It uses three permissions: read your messages, compose messages, and add two items to the message list context menu.
+Attach & Reply is free, has no ads and no tracking, and nothing is ever pushed at you while you work. The only place you can support it is a passive block on the options page, which you can hide for 90 days - donations unlock nothing. It uses three permissions: read your messages, compose messages, and add two items to the message list context menu.
 
 **ZH**
 
@@ -63,7 +63,7 @@ Attach & Reply is free, has no ads and no tracking, and never asks for anything 
 
 附件会保持原有顺序和文件名，中文文件名不会乱码。不是文件的东西一律不动：正文内嵌图片留在正文里，网页链接附件和云附件不是文件，已删除的附件只是占位。如果原邮件有附件但全被过滤掉了，工具栏按钮上会显示跳过几个以及原因。
 
-带附件回复免费、无广告、不追踪，在应用里也不会向你要任何东西。只用三个权限：读取邮件、撰写邮件、在邮件列表右键菜单里加两项。
+带附件回复免费、无广告、不追踪，工作过程中不会向你推送任何东西。唯一能支持它的地方是选项页里的一块被动说明，你可以把它隐藏 90 天——捐赠不会解锁任何功能。只用三个权限：读取邮件、撰写邮件、在邮件列表右键菜单里加两项。
 
 ### Name
 
