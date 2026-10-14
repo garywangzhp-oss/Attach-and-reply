@@ -129,6 +129,16 @@ is ever introduced:
   (`beginReplyWithAttachments({..., browser})`) so they can be unit tested with a
   fake, which is why `compose.*` calls may not be attributed to the permission
   automatically. They are all in `lib/reply.js`.
+- About the Firefox validator: `web-ext lint` (addons.mozilla.org's validator, which
+  Thunderbird shares) reports our Thunderbird-only permissions and APIs as unknown -
+  `compose`, `messagesRead`, `messageDisplay.*`, `mailTabs.*`, `messages.*`. That
+  validator checks against **Firefox**'s schema, which has no mail APIs. It reports
+  them as *warnings*, never errors, and Thunderbird's own linter - same file, same
+  review, Thunderbird's annotated schema - passes every one of those calls and even
+  confirms the permission mapping (`messageDisplay.getDisplayedMessages needs
+  'messagesRead'`). Run it with
+  `node verify.js <xpi>` from <https://github.com/thunderbird/webext-linter>:
+  XPI-only review reports 0 errors, 0 warnings, 0 holds.
 - The badge notice is deliberate: at most one API call after the compose window
   opens, no loops. Threads are never polled; the message id is known before the
   reply is created.
